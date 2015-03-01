@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+node install fs-plus highlights path ./language-perl

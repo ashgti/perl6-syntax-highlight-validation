@@ -1,0 +1,6 @@
+[submodule "perl.tmbundle"]
+	path = perl.tmbundle
+	url = https://github.com/ashgti/perl.tmbundle.git
+[submodule "themes/atom-light-syntax"]
+	path = themes/atom-light-syntax
+	url = https://github.com/atom/atom-light-syntax
