@@ -4,3 +4,6 @@
 [submodule "themes/atom-light-syntax"]
 	path = themes/atom-light-syntax
 	url = https://github.com/atom/atom-light-syntax
+[submodule "themes/solarized-dark-syntax"]
+	path = themes/solarized-dark-syntax
+	url = https://github.com/atom/solarized-dark-syntax.git

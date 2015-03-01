@@ -18,7 +18,7 @@ sub check-dependencies {
   }
 }
 
-my $syntax-validation-template = q:to/END/;
+my $syntax-validation-template = q:to /END/;
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,16 +39,17 @@ sub MAIN(:i(:$init), :t(:$theme) = 'atom-light-syntax', :o(:$output) = 'output',
 
   if $init {
     qx<apm init --package language-perl --convert ./perl.tmbundle>;
+    qx<npm install ./language-perl>;
   }
 
   if $output.IO !~~ :d {
     mkdir($output);
   }
 
-  shell(qqw{lessc --include-path=themes/$theme/styles themes/$theme/index.less $output/$theme.css});
+  shell(qqw{lessc --include-path="themes/$theme/styles" "themes/$theme/index.less" "$output/$theme.css"});
 
   for @example-files -> $example {
-    my $highlight = qqx<node ./highlight-p6.js --scope source.perl6 --include ./language-perl/grammars/perl\\ 6.cson {$example}>;
+    my $highlight = qqx<node ./highlight-p6.js --scope source.perl6 {$example}>;
     spurt "$output/$example.html", sprintf($syntax-validation-template, $example, $theme, $highlight);
   }
 }
